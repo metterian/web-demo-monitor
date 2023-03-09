@@ -1,9 +1,9 @@
-## Demo site monitoring with Streamlit
-```
+## Webpage monitoring with Streamlit
+
+
 이 프로젝트는 매 시간 주기적으로 데모 사이트의 상태를 체크하고, 이상이 있을 경우 Slack 봇을 통해 알림을 보내는 웹 페이지입니다.
 
 이 프로젝트는 Python의 streamlit과 sqlite3 모듈을 활용하여 개발되었습니다. streamlit은 사용자 친화적인 인터페이스를 만드는 데 사용되며, sqlite3은 데이터베이스를 관리하는 데 사용됩니다.
-```
 
 
 ### 실행 방법
