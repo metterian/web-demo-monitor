@@ -6,6 +6,10 @@
 이 프로젝트는 Python의 streamlit과 sqlite3 모듈을 활용하여 개발되었습니다. streamlit은 사용자 친화적인 인터페이스를 만드는 데 사용되며, sqlite3은 데이터베이스를 관리하는 데 사용됩니다.
 
 
+### 스크린샷
+![screenshot](static/screenshot.png)
+
+
 ### 실행 방법
 이 리포지토리를 클론합니다.
 
@@ -37,8 +41,6 @@ update.py 파일을 실행하여 매 시간마다 데모 사이트의 상태를 
 python update.py
 ````
 
-### 스크린샷
-![screenshot](static/screenshot.png)
 
 
 
