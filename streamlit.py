@@ -4,7 +4,7 @@ import pandas as pd
 import wget
 import webbrowser
 from bokeh.models.widgets import Div
-from slack import Slack, token
+from slack import Slack
 import datetime
 import pytz
 import time
@@ -51,7 +51,6 @@ def get_status(url):
 
 
 if __name__ == "__main__":
-    slack = Slack(token)
     st.title("NLP & AI Sever status")
 
     if st.button("Demo Spreadsheet"):

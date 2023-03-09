@@ -37,6 +37,11 @@ update.py 파일을 실행하여 매 시간마다 데모 사이트의 상태를 
 python update.py
 ````
 
+### 스크린샷
+![screenshot](static/screenshot.png)
+
+
+
 ### 기여하기
 이 프로젝트에 기여하려면, 이 리포지토리를 포크하고 새로운 브랜치를 만든 다음 Pull Request를 보내주십시오.
 
