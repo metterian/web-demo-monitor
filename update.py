@@ -2,17 +2,17 @@
 import sqlite3
 import pandas as pd
 import requests
-from slack import Slack, token
+from slack import Slack
 import datetime
 import pytz
-
+from secret import slack_token
 
 
 
 kst = pytz.timezone('Asia/Seoul')
 demo_sheet_url = "https://docs.google.com/spreadsheets/d/19zYpEc0SGDdFedT5Ej-JqD3IEVy2m0gO7XPbTbTiw00/edit?usp=sharing"
 demo_sheet = demo_sheet_url.replace("/edit?usp=sharing", "/export?format=csv")
-slack = Slack(token)
+slack = Slack(slack_token)
 channel_name = 'server-bot'
 
 def get_status(url):

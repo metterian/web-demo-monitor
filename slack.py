@@ -1,5 +1,5 @@
 from slack_sdk import WebClient
-
+from secret import slack_token
 
 class Slack:
     def __init__(self, token) -> None:
@@ -31,4 +31,3 @@ class Slack:
         )
         return result
 
-token = "xoxb-745541265472-4944855285024-QmZpyRkqixySa56PPRcMxR9A"
