@@ -7,6 +7,7 @@ import pandas as pd
 import pytz
 import requests
 from slack import Slack
+from dataclasses import dataclass
 
 from secret import slack_token
 
@@ -17,10 +18,10 @@ demo_sheet = demo_sheet_url.replace("/edit?usp=sharing", "/export?format=csv")
 slack = Slack(slack_token)
 channel_name = 'server-bot'
 
-
-class Status(Enum):
-    working = auto()
-    not_working = auto()
+@dataclass
+class Status:
+    working = "working"
+    not_working = "not working"
 
 def get_status(url) -> Status:
     try:
@@ -61,16 +62,5 @@ with sqlite3.connect('example.db') as conn:
     df_sql['status'] = df_sql.apply(check_status, axis=1)
     df_sql.to_sql('demo', conn, if_exists='replace', index=False)
 
-
-
-
-
-# df_sql['status'] = df_sql.apply(check_status, axis=1)
-
-
-# # update table
-# df_sql.to_sql('demo', conn, if_exists='replace', index=False)
-# conn.commit()
-# conn.close()
 
 print("Done")

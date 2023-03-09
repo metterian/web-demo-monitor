@@ -9,6 +9,13 @@ import datetime
 import pytz
 import time
 import sqlite3
+from dataclasses import dataclass
+
+@dataclass
+class Status:
+    working = "working"
+    not_working = "not working"
+
 
 # st.set_page_config(layout="wide")
 kst = pytz.timezone('Asia/Seoul')
@@ -29,23 +36,25 @@ def load_data(url):
     return pd.read_csv(url)
 
 def color_status(val):
-    if val == 'Not working':
+    if val == Status.not_working:
         color = 'red'
-    elif val == 'Working':
+    elif val == Status.working:
         color = 'green'
     else:
         color = 'black'
     return f'color: {color}'
 
 
-def get_status(url):
+
+
+def get_status(url) -> Status:
     try:
         res = requests.get(f"{url}")
         if res.status_code == 200:
-            return "Working"
+            return Status.working
     except requests.exceptions.ConnectionError:
-        return "Not working"
-    return "Working"
+        return Status.not_working
+    return Status.working
 
 
 
@@ -55,7 +64,6 @@ if __name__ == "__main__":
 
     if st.button("Demo Spreadsheet"):
         js = f"window.open('{demo_sheet_url}')"  # New tab or window
-        # js = "window.location.href = 'https://www.streamlit.io/'"  # Current tab
         html = '<img src onerror="{}">'.format(js)
         div = Div(text=html)
         st.bokeh_chart(div)
@@ -66,14 +74,8 @@ if __name__ == "__main__":
     for task in tasks:
         st.write(f"### {task}")
         df = demo[demo.task == task]
-        # df["status"] = df.url.apply(get_status)
         st.table(df[["name", "status"]].style.applymap(color_status, subset=['status']))
 
-
-
-    # while True:
-    #     placeholder.text(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-    #     time.sleep(10) # 10초마다 새로고침
 
 
 
