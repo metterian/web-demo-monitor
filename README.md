@@ -8,7 +8,7 @@
 
 ### 스크린샷
 ![screenshot](static/screenshot.png)
-
+![screenshot](static/slack.png)
 
 ### 실행 방법
 이 리포지토리를 클론합니다.
